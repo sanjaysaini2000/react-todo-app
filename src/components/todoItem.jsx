@@ -5,6 +5,7 @@ export default class TodoItem extends Component {
   constructor() {
     super();
     this.state = { itemStatus: "Uncrossed" };
+    this.Style = { textDecoration: "none" };
   }
   handleDelete(e) {
     this.props.onDelete(e, this.props.name, true);
@@ -13,8 +14,10 @@ export default class TodoItem extends Component {
   handleClick = e => {
     if (this.state.itemStatus === "Uncrossed") {
       this.setState({ itemStatus: "Crossed" });
+      this.Style = { textDecorationLine: "line-through" };
     } else {
       this.setState({ itemStatus: "Uncrossed" });
+      this.Style = { textDecoration: "none" };
     }
     this.props.OnStatusUpdate(e, this.props.name, this.state.itemStatus);
     e.preventDefault();
@@ -22,7 +25,7 @@ export default class TodoItem extends Component {
   render() {
     return (
       <tr>
-        <td>{this.props.name.text}</td>
+        <td style={this.Style}>{this.props.name.text}</td>
         <td>
           <center>
             <button
