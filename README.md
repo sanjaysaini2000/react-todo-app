@@ -4,11 +4,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 - Clone or download & unzip this repository in the folder on your machine.
 - Run following command on the command window in that app folder.
-  `nmp install`
+  
+  #### `npm install`
+  `
   This will installed all the requird dependencies.
 
 - Now run following command.
-  `npm start`
+  
+  #### `npm start`
+  
   Runs the app in the development mode.<br>
   Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
