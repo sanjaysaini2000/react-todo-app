@@ -19,6 +19,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
+## Docker Support
+
+Docker image of this app is available at my docker Hub registory. You can pull the image from [react-app](https://hub.docker.com/repository/docker/sanjaysaini2000/react-app) repository.
+
 ## Available Scripts
 
 ### `npm test`
