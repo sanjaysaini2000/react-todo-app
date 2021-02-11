@@ -10,6 +10,7 @@ phases:
 
 artifacts:
   files:
-    - '**/*'
+    - build/**/*
+    - scripts/**/*
+    - appspec.yml
   discard-paths: no
-  base-directory: build

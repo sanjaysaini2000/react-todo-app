@@ -1,0 +1,20 @@
+# This is an appspec.yml template file for use with an EC2/On-Premises deployment in CodeDeploy.
+
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /var/www
+
+hooks:
+  
+  AfterInstall:
+    - location: scripts/install_dependencies
+      timeout: 300
+      runas: root
+
+  ApplicationStart:
+    - location: scripts/app_start
+      timeout: 300
+      runas: root
