@@ -5,7 +5,7 @@ export default class NavBar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        Todo App
+        Todo App v1
         <button
           className="navbar-toggler"
           type="button"
