@@ -1,0 +1,69 @@
+version: 0.2
+
+#env:
+    #variables:
+        # key: "value"
+        # key: "value"
+    #parameter-store:
+        # key: "value"
+        # key: "value"
+    #secrets-manager:
+        # key: secret-id:json-key:version-stage:version-id
+        # key: secret-id:json-key:version-stage:version-id
+    #exported-variables:
+        # - variable
+        # - variable
+    #git-credential-helper: yes
+#batch:
+    #fast-fail: true
+    #build-list:
+    #build-matrix:
+    #build-graph:
+phases:
+    #install:
+    #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
+    #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
+    #runtime-versions:
+        # name: version
+        # name: version
+    #commands:
+        # - command
+        # - command
+    pre_build: 
+        commands: 
+        - echo Logging in to Amazon ECR.... 
+        - aws --version
+        # update the following line with your own region
+        - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 830891726046.dkr.ecr.us-east-1.amazonaws.com
+    build: 
+    commands: 
+        - echo Build started on `date` 
+        - echo Building the Docker image... 
+        # update the following line with the name of your own ECR repository
+        - docker build -t react-app .
+        # update the following line with the URI of your own ECR repository (view the Push Commands in the console)
+        - docker tag react-app:latest 830891726046.dkr.ecr.us-east-1.amazonaws.com/react-app:latest 
+    post_build: 
+    commands: 
+        - echo Build completed on `date` 
+        - echo pushing to repo
+        # update the following line with the URI of your own ECR repository
+        - docker push 830891726046.dkr.ecr.us-east-1.amazonaws.com/react-app:latest 
+#reports:
+    #report-name-or-arn:
+    #files:
+        # - location
+        # - location
+    #base-directory: location
+    #discard-paths: yes
+    #file-format: JunitXml | CucumberJson
+#artifacts:
+    #files:
+    # - location
+    # - location
+    #name: $(date +%Y-%m-%d)
+    #discard-paths: yes
+    #base-directory: location
+#cache:
+    #paths:
+    # - paths    
